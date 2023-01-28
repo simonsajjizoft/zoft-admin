@@ -1,0 +1,92 @@
+<c-row ngPreserveWhitespaces style="min-height:80vh!important">
+    <c-col md="8" xl="9" xs="12">
+        <c-row>
+            <ckeditor  [editor]="Editor" ></ckeditor>
+          </c-row>
+    </c-col>
+    <c-col md="4" xl="3" xs="12">
+        <c-card class="mb-4">
+            <c-card-body>
+              <c-row >
+                <c-accordion  [alwaysOpen]="true">
+                    <c-accordion-item #item0="cAccordionItem" [visible]="true" flush="true" >
+                      <ng-template cTemplateId="accordionHeaderTemplate">
+                        <button (click)="item0.toggleItem()" [collapsed]="!item0.visible" cAccordionButton class="f-s-16 f-w-500">
+                          Publish
+                        </button>
+                      </ng-template>
+                      <ng-template cTemplateId="accordionBodyTemplate">
+                        <div class="accordion-body">
+                            <div class="d-grid-2 f-s-13 ">
+                                <div class="f-w-400 grid-item">Status : </div>
+                                <div class="f-w-500 grid-item">Published</div>
+                                <div class="f-w-400 grid-item">Visibility : </div>
+                                <div class="f-w-500 grid-item">Public</div>
+                                <div class="f-w-400 grid-item">Published on : </div>
+                                <div class="f-w-500 grid-item">Apr 2, 2022 at 16:36</div>
+                            </div>  
+                            <div class="d-flex w-100 btn-ctn j-end m-t-10">
+                                <button
+                                    cButton
+                                    class="primary custom-btn f-s-13"
+                                    size="sm"
+                                    type="button"
+                                >Update
+                                </button>   
+                            </div>                     
+                        </div>
+                      </ng-template>
+                    </c-accordion-item>
+                  </c-accordion>
+              </c-row>                 
+            </c-card-body>
+         
+          </c-card>
+        
+          <c-card class="mb-4">
+            <c-card-body>
+                <h5 class="f-s-16 p-15 h-btn">Page Attributes</h5>
+                <div class="d-grid-2 f-s-13 p-15">
+                    <div class="f-w-400 grid-item">Parent : </div>
+                    <div class="f-w-500 grid-item">
+                        <c-dropdown variant="btn-group" >
+                            <button cButton cDropdownToggle color="secondary" size="sm" class="f-s-13 dropdown-tgle">
+                              Small button
+                            </button>
+                            <ul cDropdownMenu class="f-s-13">
+                              <li><button cDropdownItem>Action</button></li>
+                              <li><button cDropdownItem>Another action</button></li>
+                              <li><button cDropdownItem>Another action</button></li>
+                              <li><button cDropdownItem>Another action</button></li>
+                              <li><button cDropdownItem>Another action</button></li>
+                              <li><button cDropdownItem>Another action</button></li>
+                              <li><button cDropdownItem>Something else here</button></li>
+                            </ul>
+                          </c-dropdown>
+                    </div>
+                    
+                    <div class="f-w-400 grid-item">Template : </div>
+                    <div class="f-w-500 grid-item">
+                      <c-dropdown variant="btn-group" >
+                          <button cButton cDropdownToggle color="secondary" size="sm" class="f-s-13 dropdown-tgle">
+                            Small button
+                          </button>
+                          <ul cDropdownMenu class="f-s-13">
+                            <li><button cDropdownItem>Action</button></li>
+                            <li><button cDropdownItem>Another action</button></li>
+                            <li><button cDropdownItem>Another action</button></li>
+                            <li><button cDropdownItem>Another action</button></li>
+                            <li><button cDropdownItem>Another action</button></li>
+                            <li><button cDropdownItem>Another action</button></li>
+                            <li><button cDropdownItem>Something else here</button></li>
+                          </ul>
+                        </c-dropdown>
+                  </div>
+                </div> 
+            </c-card-body>
+           
+          </c-card>
+    </c-col>
+
+
+</c-row>

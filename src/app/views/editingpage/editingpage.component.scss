@@ -1,0 +1,74 @@
+::ng-deep .ck-editor__editable {
+    min-height: 50vh!important;
+}
+.accordion-body{
+    padding: 15px!important;
+    overflow: visible!important;
+}
+
+.card-body{
+    padding: 0!important;
+}
+
+.accordion-button{
+    padding: 15px!important;
+}
+.accordion-button:not(.collapsed){
+    background-color: rgb(246, 246, 246)!important;
+    box-shadow: none!important;
+}
+
+
+.accordion-item:last-of-type .accordion-button.collapsed {
+    border-bottom-right-radius: var(--cui-accordion-inner-border-radius);
+    border-bottom-left-radius: var(--cui-accordion-inner-border-radius);
+}
+.accordion-item:first-of-type .accordion-button{
+    box-shadow: none!important;
+
+}
+
+.gap-10{
+    gap:10%;
+}
+
+.d-grid-2{
+    display: grid;
+    grid-template-columns: auto auto;
+
+}
+
+.d-grid-2 .grid-item{
+    padding-bottom:2px;
+    padding-top:2px;
+}
+
+.custom-btn{
+    background-color:#536487!important;
+    color:white!important;
+}
+
+.w-100{
+    width: 100%!important;
+}
+
+.btn-ctn{
+    justify-content: end!important;
+}
+
+.dropdown-menu{
+    max-height: 200px!important;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.h-btn{
+    color: var(--cui-accordion-active-color);
+    background-color: rgb(246, 246, 246) !important;
+    border-top-left-radius: var(--cui-accordion-inner-border-radius);
+    border-top-right-radius: var(--cui-accordion-inner-border-radius);
+}
+
+.dropdown-tgle{
+    background-color: rgb(250, 250, 250);
+}

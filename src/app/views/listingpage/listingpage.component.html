@@ -1,0 +1,88 @@
+<c-row ngPreserveWhitespaces style="min-height:80vh!important">
+  
+    <c-col xs="12">
+      <c-card class="mb-4">
+        <c-card-header>
+          <strong class="m-r-10" >Blogs</strong> <small> All (3)</small> <small> Published (2)</small> <small> Draft (1)</small>
+        </c-card-header>
+        <c-card-body>
+         
+          <!-- <mat-form-field appearance="fill" class="m-t-10">
+            <mat-label>Input</mat-label>
+            <input matInput (keyup)="applyFilter($event,'Title')"  #filterName  >
+          </mat-form-field> -->
+         
+          <mat-table matSort [dataSource]="dataSource"   class="mat-table m-b-5 w-100" style="overflow-x:scroll!important">
+            <ng-container *ngFor="let col of shownColumns" [matColumnDef]="col">
+              <!-- <ng-container *ngIf="col=='op'">
+                          <mat-header-cell *matHeaderCellDef>
+                             
+                          </mat-header-cell>
+                          <mat-cell *matCellDef="let row">
+                              <i class="fa fa-ellipsis-v f-s-18  c-gr-light p-5"></i>
+                          </mat-cell>
+                      </ng-container> -->
+                      
+              <ng-container *ngIf="col=='select'">
+                <mat-header-cell *matHeaderCellDef mat-sort-header class="f-s-14 d-flex"
+                  style="align-items: center!important;vertical-align: center!important;">
+                  <!-- <mat-checkbox (change)="masterToggle($event)"
+                                  [checked]="selection.selected.length===paginator.pageSize" 
+                                  >
+                              </mat-checkbox> -->
+                  <mat-checkbox (change)="$event ? masterToggle($event) : null"
+                    [checked]="selection.hasValue() && isEntirePageSelected()"
+                    [indeterminate]="selection.hasValue() && !isEntirePageSelected()"></mat-checkbox>
+                </mat-header-cell>
+                <mat-cell *matCellDef="let row">
+                  <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selectaRow(row,$event) : null"
+                    [checked]="selection.isSelected(row)">
+                  </mat-checkbox>
+                </mat-cell>
+              </ng-container>
+              <ng-container *ngIf="col=='edit'">
+                <mat-header-cell *matHeaderCellDef mat-sort-header class="f-s-14 d-flex"
+                  style="align-items: center!important;vertical-align: center!important;">                  
+                </mat-header-cell>
+                <mat-cell *matCellDef="let row">
+                  <mat-icon class="f-s-16 p-5">edit</mat-icon>
+                </mat-cell>
+              </ng-container>
+              <ng-container *ngIf="col=='view'">
+                <mat-header-cell *matHeaderCellDef mat-sort-header class="f-s-14 d-flex"
+                  style="align-items: center!important;vertical-align: center!important;">                  
+                </mat-header-cell>
+                <mat-cell *matCellDef="let row">
+                  <mat-icon class="f-s-16 p-5">visibility</mat-icon>
+                </mat-cell>
+              </ng-container>
+              <mat-header-cell *matHeaderCellDef mat-sort-header class="f-s-14 flex-column align-start  c-dark" >
+                <div >{{ col}}</div>
+               
+              </mat-header-cell>
+  
+              <mat-header-cell *matHeaderCellDef mat-sort-header class="f-s-14 flex-column align-start  c-dark" >
+                <div >{{ col }}</div>
+              
+              
+              </mat-header-cell>
+              <mat-cell *matCellDef="let element" class="p-relative"
+                style="white-space: nowrap; text-overflow:ellipsis; overflow: hidden; "
+               > {{ element[col] }} 
+              </mat-cell>
+            </ng-container>
+            <mat-header-row *matHeaderRowDef="shownColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: shownColumns;"></mat-row>
+          </mat-table>
+          <mat-paginator #matpaginatr [pageSize]="pageSizeperPage" [pageSizeOptions]="[5,10,40,50,70]" class="pgntr" showFirstLastButtons [pageIndex]="pgIndex"
+          (page)='onChangedPage($event)'  style="width: 50%!important;">
+        </mat-paginator>
+  
+        </c-card-body>
+      </c-card>
+     
+    </c-col> 
+   
+  </c-row>
+
+  

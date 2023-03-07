@@ -72,3 +72,35 @@
 .dropdown-tgle{
     background-color: rgb(250, 250, 250);
 }
+
+.edit-drop-down{
+    position: absolute!important;
+    top:150%;
+    left:5px;
+    height: 35px;
+    width: fit-content!important;
+    min-width: max-content!important;
+    border: 0.01rem solid rgb(159, 159, 159);
+    background-color: white;
+    border-radius: 5px;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+
+ 
+}
+
+.edit-drop-down .url-editor{
+    width: fit-content!important;
+    min-width: 250px!important;
+    display: inline;
+    border: 0.01rem solid gray;
+}
+
+.primary-bg{
+    background-color: rgb(27, 145, 218);
+}
+
+.display-url{
+    color:rgb(0, 145, 255);
+}

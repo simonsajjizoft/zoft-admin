@@ -8,6 +8,7 @@ import { WidgetsModule } from '../widgets/widgets.module';
 import { MaterialModule } from '../../material/material.module';
 import { EditingpageRoutingModule } from './editingpage-routing.module';
 
+
 @NgModule({
   declarations: [
     EditingpageComponent

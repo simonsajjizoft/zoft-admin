@@ -46,6 +46,7 @@ import {
 
 import { IconModule, IconSetService } from '@coreui/icons-angular';
 import {MaterialModule} from './material/material.module';
+import { SafehtmlPipe } from './pipes/safehtml.pipe';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,

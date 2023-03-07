@@ -41,8 +41,8 @@ mat-table{
 .mat-column-edit{
   word-wrap: break-word !important;
   white-space: unset !important;
-  flex: 0 0 65px !important;
-  width: 45px !important;
+  flex: 0 0 85px !important;
+  width: 75px !important;
   overflow-wrap: break-word;
   word-wrap: break-word;
   vertical-align: middle;
@@ -53,10 +53,39 @@ mat-table{
   -webkit-hyphens: auto;
   hyphens: auto;
 }
-.mat-column-view{
+.mat-column-delete{
   word-wrap: break-word !important;
   white-space: unset !important;
-  flex: 0 0 75px !important;
+  flex: 0 0 105px !important;
+  width: 75px !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  vertical-align: middle;
+  word-break: break-word;
+
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+.mat-column-Title{
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 13vw !important;
+  width: 55px !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  vertical-align: middle;
+  word-break: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+.mat-column-Tags{
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 12vw !important;
   width: 55px !important;
   overflow-wrap: break-word;
   word-wrap: break-word;
@@ -68,6 +97,22 @@ mat-table{
   -webkit-hyphens: auto;
   hyphens: auto;
 }
+.mat-column-Status{
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 6vw !important;
+  width: 55px !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  vertical-align: middle;
+  word-break: break-word;
+
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
 
 
 
@@ -86,6 +131,7 @@ mat-table{
   text-overflow: ellipsis!important;
   font-size: 13px!important;
   vertical-align: middle!important; 
+
   
 }
 
@@ -133,7 +179,6 @@ display: table-row;
 mat-cell {
   border: 0;
   border-bottom: 1px solid #d8d8d8;
-  height: 40px;
   padding-bottom: 1px!important;
   padding-top: 1px!important;
 
@@ -146,9 +191,103 @@ mat-header-cell {
   border-bottom: 1px solid #d8d8d8;
   background-color: var(--cui-dark) !important;
   color:white!important;
-  height: 40px;
+ 
  }
 
  .pgntr{
   font-size: 14px!important;
  }
+ .s-by-title-ctn{
+  width: 40%;
+ }
+
+ .search-by-title{
+  border: 0.01rem solid rgb(150, 159, 207);
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-right: 0;
+  outline: none;
+ padding: 4px 5px;
+ width: 100%;
+ }
+
+ .s-ctn{
+  border: 0.01rem solid rgb(150, 159, 207);
+  background-color: white!important;
+  border-top-right-radius: 5px;
+  padding: 2px 5px;
+  border-bottom-right-radius: 5px;
+  border-left: 0;
+
+ }
+
+ .view-ctn{
+  position: relative;
+  transition: all 0.25s linear;
+
+ }
+
+.edit-button{
+  height: 25px;
+  padding: 0 8px!important;
+}
+.view-button-2{
+  height: 15px;
+  width: 15px;
+  padding: 5px!important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right:5%;
+  top:40%;
+  visibility: hidden;
+}
+
+.view-button-2 > i{
+  color:rgb(107, 164, 225);
+}
+
+.view-ctn:hover{
+  .view-button-2{
+    visibility: visible;
+  }
+  color:rgb(71, 144, 221);
+}
+
+.del-button{
+  height: 30px;
+  padding: 5px;
+  color: white;
+}
+
+
+
+.mat-cell, .mat-header-cell{
+  height: 20px!important;
+  padding: 5px!important;
+  font-weight: 500!important;
+  
+ 
+}
+
+
+.add-btn{
+  height: 25px!important;
+  padding: 2px 10px!important;
+  font-size: 13px!important;
+  display: flex!important;
+  justify-content: center!important;
+  align-items: center!important;
+  background-color: rgb(36, 107, 173);
+  border: 0!important;
+  margin-top: 2px!important;
+}
+
+.seperator{
+  margin-left: 5px;
+  margin-right: 5px;
+  font-size: 12px;
+  font-weight: 700;
+  color:grey!important;
+}

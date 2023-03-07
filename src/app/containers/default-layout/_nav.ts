@@ -10,10 +10,27 @@ export const navItems: INavData[] = [
   //     text: 'NEW'
   //   }
   // },
+
+  // {
+  //   name: 'Blogs',
+  //   url: '/listingpage',
+  //   iconComponent: { name: 'cil-pencil' },
+  // },
+
   {
     name: 'Blogs',
     url: '/listingpage',
     iconComponent: { name: 'cil-pencil' },
+    children: [
+      {
+        name: 'Manage Blogs',
+        url: '/listingpage'
+      },
+      {
+        name: 'Create a Blog',
+        url: '/editingpage'
+      },
+    ]
   },
   {
     name: 'Case Studies',

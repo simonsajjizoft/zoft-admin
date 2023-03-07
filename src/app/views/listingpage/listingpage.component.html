@@ -1,30 +1,27 @@
-<c-row ngPreserveWhitespaces style="min-height:80vh!important">
-  
+<c-row ngPreserveWhitespaces style="min-height:80vh!important"> 
+   <c-container [fluid]="true" class="m-l-2" >
+    <c-breadcrumb  >
+      <c-breadcrumb-item url="#">Home</c-breadcrumb-item>
+      <c-breadcrumb-item [active]="true" >Manage Blogs</c-breadcrumb-item>
+    </c-breadcrumb>
+  </c-container> 
     <c-col xs="12">
       <c-card class="mb-4">
-        <c-card-header>
-          <strong class="m-r-10" >Blogs</strong> <small> All (3)</small> <small> Published (2)</small> <small> Draft (1)</small>
+        <c-card-header class="d-flex j-space">
+         <div class="d-flex align-center j-center"><strong class="m-r-10" >Blogs</strong>  <small class="m-l-5 c-pointer" (click)="filterByStatus('Status','All')"> All (3)<span class="seperator ">|</span></small> <small class="m-l-5 c-pointer" (click)="filterByStatus('Status','Published')"> Published (2)<span class="seperator">|</span></small> <small class="m-l-5 c-pointer" (click)="filterByStatus('Status','Draft')"> Draft (1)</small>
+          <div><button cButton class="add-btn f-s-13 f-w-500 m-l-10" [routerLink]="'/editingpage'"> Create New Blog</button></div>
+        </div> 
+         
+         <div class="d-flex align-center j-center s-by-title-ctn">       
+          <input matInput type="text" placeholder="Search" class="search-by-title f-s-13" (keyup)="applyFilter($event,'Title')"  #filterName>
+          <div class=" d-flex align-center j-center s-ctn"><mat-icon>search</mat-icon></div>
+         </div>
         </c-card-header>
         <c-card-body>
-         
-          <!-- <mat-form-field appearance="fill" class="m-t-10">
-            <mat-label>Input</mat-label>
-            <input matInput (keyup)="applyFilter($event,'Title')"  #filterName  >
-          </mat-form-field> -->
-         
           <mat-table matSort [dataSource]="dataSource"   class="mat-table m-b-5 w-100" style="overflow-x:scroll!important">
-            <ng-container *ngFor="let col of shownColumns" [matColumnDef]="col">
-              <!-- <ng-container *ngIf="col=='op'">
-                          <mat-header-cell *matHeaderCellDef>
-                             
-                          </mat-header-cell>
-                          <mat-cell *matCellDef="let row">
-                              <i class="fa fa-ellipsis-v f-s-18  c-gr-light p-5"></i>
-                          </mat-cell>
-                      </ng-container> -->
-                      
+            <ng-container *ngFor="let col of shownColumns" [matColumnDef]="col">                      
               <ng-container *ngIf="col=='select'">
-                <mat-header-cell *matHeaderCellDef mat-sort-header class="f-s-14 d-flex"
+                <mat-header-cell  *matHeaderCellDef mat-sort-header class="f-s-13 d-flex"
                   style="align-items: center!important;vertical-align: center!important;">
                   <!-- <mat-checkbox (change)="masterToggle($event)"
                                   [checked]="selection.selected.length===paginator.pageSize" 
@@ -40,44 +37,61 @@
                   </mat-checkbox>
                 </mat-cell>
               </ng-container>
+    
+              <ng-container *ngIf="col=='Title'">
+                <mat-header-cell *matHeaderCellDef mat-sort-header class="f-s-13 d-flex"
+                  style="align-items: center!important;vertical-align: center!important;">
+                  Title
+                </mat-header-cell>
+                <mat-cell *matCellDef="let element" class="view-ctn c-pointer" title="Preview Blog" (click)="previewBlog(element)">
+                  {{element[col]}} <div class="view-button-2 d-flex align-center j-center f-s-12"><i class="fa fa-eye"></i></div>
+                </mat-cell>
+              </ng-container>
               <ng-container *ngIf="col=='edit'">
-                <mat-header-cell *matHeaderCellDef mat-sort-header class="f-s-14 d-flex"
-                  style="align-items: center!important;vertical-align: center!important;">                  
+                <mat-header-cell *matHeaderCellDef mat-sort-header class="f-s-13 d-flex"
+                  style="align-items: center!important;vertical-align: center!important;">
                 </mat-header-cell>
-                <mat-cell *matCellDef="let row">
-                  <mat-icon class="f-s-16 p-5">edit</mat-icon>
+                <mat-cell *matCellDef="let element">
+                  <button cButton color="warning" class="edit-button f-s-13 f-w-500" (click)="gotToEditingPage(element?.Title,element?.Title)">Edit</button>
                 </mat-cell>
               </ng-container>
-              <ng-container *ngIf="col=='view'">
-                <mat-header-cell *matHeaderCellDef mat-sort-header class="f-s-14 d-flex"
-                  style="align-items: center!important;vertical-align: center!important;">                  
+              <!-- <ng-container *ngIf="col=='delete'">
+                <mat-header-cell *matHeaderCellDef mat-sort-header class="f-s-13 d-flex"
+                  style="align-items: center!important;vertical-align: center!important;">
                 </mat-header-cell>
                 <mat-cell *matCellDef="let row">
-                  <mat-icon class="f-s-16 p-5">visibility</mat-icon>
+                  <button cButton color="danger" class="del-button f-s-13 f-w-500" ><mat-icon class="f-s-18 ">delete</mat-icon></button>
                 </mat-cell>
-              </ng-container>
-              <mat-header-cell *matHeaderCellDef mat-sort-header class="f-s-14 flex-column align-start  c-dark" >
+              </ng-container> -->
+             
+              <mat-header-cell *matHeaderCellDef mat-sort-header class="f-s-13 flex-column align-start  c-dark" >
                 <div >{{ col}}</div>
                
               </mat-header-cell>
   
-              <mat-header-cell *matHeaderCellDef mat-sort-header class="f-s-14 flex-column align-start  c-dark" >
+              <mat-header-cell *matHeaderCellDef mat-sort-header class="f-s-13 flex-column align-start  c-dark" >
                 <div >{{ col }}</div>
-              
-              
               </mat-header-cell>
-              <mat-cell *matCellDef="let element" class="p-relative"
+              <mat-cell *matCellDef="let element" class="p-relative f-s-13"
                 style="white-space: nowrap; text-overflow:ellipsis; overflow: hidden; "
                > {{ element[col] }} 
               </mat-cell>
             </ng-container>
-            <mat-header-row *matHeaderRowDef="shownColumns"></mat-header-row>
-            <mat-row *matRowDef="let row; columns: shownColumns;"></mat-row>
+            <mat-header-row  *matHeaderRowDef="shownColumns" class="f-w-500"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: shownColumns;" class="f-w-500"></mat-row>
           </mat-table>
           <mat-paginator #matpaginatr [pageSize]="pageSizeperPage" [pageSizeOptions]="[5,10,40,50,70]" class="pgntr" showFirstLastButtons [pageIndex]="pgIndex"
           (page)='onChangedPage($event)'  style="width: 50%!important;">
         </mat-paginator>
   
+        </c-card-body>
+      </c-card>
+      <c-card class="mb-4" *ngIf="showBlogContent">
+        <c-card-header class="d-flex j-space">
+         <div><strong class="m-r-10" >Preview</strong> </div> 
+        </c-card-header>
+        <c-card-body >
+          <div [innerHTML]="blogContent | safeHtml" style="width:100%"></div>
         </c-card-body>
       </c-card>
      
